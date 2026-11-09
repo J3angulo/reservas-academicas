@@ -1,0 +1,4 @@
+package com.grupo2.reservas.repository;
+
+public interface EspacioRepository {
+}
