@@ -6,10 +6,15 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "HORARIO")
 public class Horario {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    // Relación: MUCHOS horarios pertenecen a UN espacio
+    @ManyToOne
+    @JoinColumn(name = "espacio_id", nullable = false)
+    private Espacio espacio;
 
     private String diaSemana;
     private LocalTime horaInicio;
@@ -24,6 +29,14 @@ public class Horario {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Espacio getEspacio() {
+        return espacio;
+    }
+
+    public void setEspacio(Espacio espacio) {
+        this.espacio = espacio;
     }
 
     public String getDiaSemana() {
