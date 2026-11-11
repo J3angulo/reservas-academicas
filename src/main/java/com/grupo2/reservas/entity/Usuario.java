@@ -3,18 +3,22 @@ package com.grupo2.reservas.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "USUARIO")
-public class Usuario {
-    
+@Table(name = "ESPACIO")
+class Espacio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 100)
     private String nombre;
-    private String correo;
-    private String rol;
 
-    public Usuario() {
+    @Column(length = 50)
+    private String tipo;
+
+    private Integer capacidad;
+
+    public Espacio() {
     }
 
     public Long getId() {
@@ -33,19 +37,19 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getRol() {
-        return rol;
+    public Integer getCapacidad() {
+        return capacidad;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setCapacidad(Integer capacidad) {
+        this.capacidad = capacidad;
     }
 }
